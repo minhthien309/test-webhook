@@ -2,7 +2,15 @@
   <body>
      <script>
         function codeAddress() {
-            alert('ok');
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const content = urlParams.get('content')
+          
+            var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
+            var theUrl = "https://discord.com/api/webhooks/990459396867899402/leg10iBY2ylFDhnsvaExHdjrE_e2bF6JBq0yAhCHSlyXNfNE-f2Cv5k1MXJurZDjxUij";
+            xmlhttp.open("POST", theUrl);
+            xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xmlhttp.send(JSON.stringify({ "content": content }));
         }
         window.onload = codeAddress;
      </script>
